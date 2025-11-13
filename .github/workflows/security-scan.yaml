@@ -5,22 +5,24 @@ on:
     branches: [ main ]
 
 jobs:
-  security-scan-all:
+  security-scan:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v4
+        with: 
+          fetch-dep: 0
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install uv
-        run: pip install uv
+      - name: Install pipx
+        run: pip install pipx
 
       - name: Install dependencies
-        run: uv sync --group dev
+        run: pipx install ggshield
 
-      - name: Run pre-commit
-        run: uv run pre-commit run --all-files
+      - name: Run ggshield scanner
+        run: ggshield scan -r .
         env:
           GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
