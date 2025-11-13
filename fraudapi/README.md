@@ -1,3 +1,6 @@
+# FRAUDAPI
+
+## Test Payload
 ```bash
 # example payload for batch prediction
 # the second payload should be considered as a FRAUD_RISK
