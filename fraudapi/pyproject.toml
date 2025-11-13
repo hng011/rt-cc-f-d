@@ -13,8 +13,3 @@ dependencies = [
     "python-dotenv>=1.2.1",
     "tensorflow==2.18.0",
 ]
-
-[dependency-groups]
-dev = [
-    "pre-commit>=4.4.0",
-]

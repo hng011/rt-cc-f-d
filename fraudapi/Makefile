@@ -1,16 +1,10 @@
-install-dev:
+install:
 	@echo installing dev dependencies...
-	@uv sync --group dev
+	@uv sync
 
-	@echo installing pre-commit hook...
-	@uv run pre-commit install
-
-	@echo "--- ✅ Install complete! ---"
-	@echo "--- IMPORTANT: Run 'ggshield auth login' manually if this is your first time. ---"
-
-run-dev:
+run:
 	@export $$(grep -v '^#' .env | xargs) \
 	&& uv run uvicorn app.main:app --host $$HOST --port $$PORT --reload
 
-run-dev-compose:
+run-compose:
 	docker compose up --build
