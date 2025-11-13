@@ -1,0 +1,9 @@
+services:
+    fraudapi:
+        image: fraudapi:${API_VERSION}-LOCAL
+        build: ./
+        env_file: ./.env
+        ports:
+            - 8501:8080
+        volumes:
+          - ./.creds:/fraudapi/.creds/:ro 

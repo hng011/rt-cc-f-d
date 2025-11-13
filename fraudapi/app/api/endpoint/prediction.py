@@ -5,7 +5,7 @@ from fastapi import (
     HTTPException
 )
 
-from fraudapi.dto.request.transaction import (
+from app.dto.request.transaction import (
     TransactionRequest,
     TransactionBatchRequest,
 )
@@ -27,7 +27,7 @@ def sanity_check():
 @router.post("/")
 def get_prediction(tx: TransactionRequest):
     try:        
-        from fraudapi.service.prediction_service import prediction_service
+        from app.service.prediction_service import prediction_service
         
         return prediction_service.get_prediction(tx)
     
@@ -41,7 +41,7 @@ def get_prediction(tx: TransactionRequest):
 @router.post("/batch")
 def get_prediction_batch(txs: TransactionBatchRequest):
     try:        
-        from fraudapi.service.prediction_service import prediction_service
+        from app.service.prediction_service import prediction_service
         
         return prediction_service.get_prediction_batch(txs)
     

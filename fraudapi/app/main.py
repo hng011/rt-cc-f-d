@@ -2,11 +2,11 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from fraudapi.api.base import api_router
+from app.api.base import api_router
 
-from fraudapi.core.logging import setup_logging
-from fraudapi.core.config import settings
-from fraudapi.core.storage import gcs_storage_service
+from app.core.logging import setup_logging
+from app.core.config import settings
+from app.core.storage import gcs_storage_service
 import os
 
 setup_logging()

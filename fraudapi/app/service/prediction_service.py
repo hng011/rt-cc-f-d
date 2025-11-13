@@ -3,14 +3,14 @@ import os
 import logging
 from typing import List
 
-from fraudapi.core.config import settings
-from fraudapi.core.storage import local_storage
-from fraudapi.dto.request.transaction import (
+from app.core.config import settings
+from app.core.storage import local_storage
+from app.dto.request.transaction import (
     TransactionRequest,
     TransactionBatchRequest
 )
 
-from fraudapi.dto.response.prediction import (
+from app.dto.response.prediction import (
     TransactionStatus,
     PredictionResponse,
     PredictionBatchResponse,

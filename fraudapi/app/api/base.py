@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from fraudapi.api.endpoint import (
+from app.api.endpoint import (
     prediction,
 )
 
