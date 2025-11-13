@@ -1,4 +1,4 @@
-# RTCCFD
+# RTCCFD 🔎
 
 ## Prerequisites
 - Python 3.12+
