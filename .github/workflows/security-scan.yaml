@@ -23,3 +23,5 @@ jobs:
       - name: Run pre-commit
         run: uv run pre-commit run --all-files
         working-directory: ./fraudapi
+        env:
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
