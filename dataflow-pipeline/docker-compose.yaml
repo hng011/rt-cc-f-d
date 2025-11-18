@@ -1,0 +1,16 @@
+services:
+    dataflow-pipeline:
+        image: dataflow-pipeline:${DFP_VERSION}-dev
+        build: ./
+        env_file: ./.env
+        environment:
+            GOOGLE_APPLICATION_CREDENTIALS: ${GCP_CREDS_PATH}
+            API_URL: http://fraudapi:8000/api/prediction/batch
+        volumes:
+          - /home/kaktus/Workspace/rt-cc-f-d/.creds/:/.creds:ro
+        networks:
+          - shared-network
+
+networks:
+    shared-network:
+      external: true
