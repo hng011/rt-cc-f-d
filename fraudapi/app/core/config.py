@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     api_version: str = "beta"
     environment: str = "dev"
     debug: bool = False
-    app_base_dir: str = "fraudapp"
+    api_base_dir: str = "fraudapp"
     local_file_storage: str = "/tmp"
     log_level: str = "debug"
     host: str = "0.0.0.0"

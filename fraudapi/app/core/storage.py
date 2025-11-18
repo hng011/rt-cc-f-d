@@ -34,7 +34,7 @@ class GCSStorageService:
                     
         try:
             source_blob_name = os.path.join(
-                settings.app_base_dir, 
+                settings.api_base_dir, 
                 settings.model_dir_path, 
                 model_filename
             )
@@ -74,7 +74,7 @@ class LocalStorage:
     Manages the local file cache paths for the application.
     """
     def __init__(self):
-        self.local_file_storage = os.path.join(settings.local_file_storage, settings.app_base_dir)
+        self.local_file_storage = os.path.join(settings.local_file_storage, settings.api_base_dir)
         logger.info(f"LocalStorage initialized. Base path: {self.local_file_storage}")
 
     def get_model_path(self, model_filename: str) -> str:

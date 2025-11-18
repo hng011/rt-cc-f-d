@@ -1,9 +1,17 @@
 services:
     fraudapi:
-        image: fraudapi:${API_VERSION}-LOCAL
+        image: ${API_BASE_DIR}:${API_VERSION}-dev
         build: ./
         env_file: ./.env
+        environment:
+            GOOGLE_APPLICATION_CREDENTIALS: ${GCP_CREDS_PATH}
         ports:
-            - 8501:8080
+            - 8501:8000
         volumes:
-          - ./.creds:/fraudapi/.creds/:ro 
+          - /home/kaktus/Workspace/rt-cc-f-d/.creds/:/.creds:ro
+        networks:
+          - shared-network
+
+networks:
+  shared-network:
+    external: true
