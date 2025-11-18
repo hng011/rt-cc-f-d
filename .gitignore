@@ -16,3 +16,4 @@ wheels/
 .env*
 datasets
 .creds
+!.env.example
