@@ -8,3 +8,6 @@ run:
 
 run-compose:
 	docker compose up --build
+
+stop-compopse:
+	docker compose down
