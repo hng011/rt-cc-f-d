@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dataflow-pipeline-config
+data:
+  DFP_VERSION: "0.1.0"
+  PROJECT_ID: "datalabs-int-bigdata"
+  SUBSCRIPTION_ID: "hans-rtccfd-predict-trigger-sub"
+  DATASET_ID: "hans_playground"
+  NUMBER_FEATURES: "29"
+  TABLE_ID: "rtccfd-predictions"
+  API_URL: "http://fraudapi-service:9969/api/prediction/batch"

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataflow-pipeline-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dataflow-pipeline
+  template:
+    metadata:
+      labels:
+        app: dataflow-pipeline
+    spec:
+      containers:
+      - name: dataflow-pipeline-container
+        image: dataflow-pipeline:0.1.0-local
+        imagePullPolicy: Never
+        
+        ports:
+        - containerPort: 8000
+
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: "/var/secrets/google/key.json"
+        
+        # 2. Inject ConfigMap (<configfilename>.conf)
+        envFrom:
+        - configMapRef:
+            name: dataflow-pipeline-config
+            
+        # --- 3. Mount Secret as a File ---
+        volumeMounts:
+        - name: google-cloud-key
+          mountPath: /var/secrets/google
+          readOnly: true
+          
+      # Volume definition from 'gcp-sa-key' secret
+      volumes:
+      - name: google-cloud-key
+        secret:
+          secretName: gcp-sa-key

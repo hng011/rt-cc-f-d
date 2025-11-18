@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fraudapi-config
+data:
+  PROJECT_NAME: "Credit Card Fraud Detector API"
+  API_VERSION: "0.1.0"
+  ENVIRONMENT: "prod"
+  DEBUG: "False"
+  LOG_LEVEL: "info"
+  API_BASE_DIR: "fraudapi"
+  HOST: "0.0.0.0"
+  PORT: "8000"
+  GOOGLE_PROJECT_ID: "datalabs-int-bigdata"
+  GCS_BUCKET_LOCATION: "asia-southeast1"
+  GCS_BUCKET_NAME: "hans_playground"
+  MODEL_DIR_PATH: "models/"
+  MODEL_FILENAME: "fraud_autoencoder_v1.keras"
+  MODEL_INPUT_DIM: "29"
+  MODEL_THRESHOLD: "1.6392"
+  CORS_ORIGINS: '["*"]'
+  CORS_ALLOW_CREDENTIALS: "True"
+  CORS_ALLOW_METHODS: '["*"]'
+  CORS_ALLOW_HEADERS: '["*"]'
